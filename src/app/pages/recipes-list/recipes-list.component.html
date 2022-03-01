@@ -1,0 +1,7 @@
+<div class="container">
+  <app-recipe
+    *ngFor="let recipe of recipes$ | async"
+    class="flex-item"
+    [recipe]="recipe"
+  ></app-recipe>
+</div>

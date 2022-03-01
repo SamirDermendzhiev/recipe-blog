@@ -1,0 +1,26 @@
+<div class="header bg-dark text-light">
+  <nav class="navbar navbar-expand-lg positon-relative">
+    <div
+      class="collapse navbar-collapse d-flex justify-content-center"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav">
+        <li>
+          <a routerLink="/recipes" class="nav-link text-light">Recipes</a>
+        </li>
+        <!-- <li><a class="nav-link text-light" to="/users">Users</a></li> -->
+        <li>
+          <a class="nav-link text-light" routerLink="/recipes/create"
+            >Create recipe</a
+          >
+        </li>
+      </ul>
+    </div>
+    <span
+      class="nav-link position-absolute text-light"
+      style="right: '0'"
+      routerLink="/login"
+      >Logout</span
+    >
+  </nav>
+</div>

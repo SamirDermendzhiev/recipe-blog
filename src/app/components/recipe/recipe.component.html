@@ -1,0 +1,40 @@
+<div class="note-card m-3 recipe">
+  <div class="card" style="width: 18rem">
+    <img class="card-img-top" [src]="recipe.picture" [alt]="recipe.name" />
+    <div class="card-body">
+      <span routerLink="/recipes/(recipe.id)"
+        ><h5 class="card-title edit-btn">{{ recipe.name }}</h5></span
+      >
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">by: {{ recipe.author }}</li>
+      <li class="list-group-item">{{ recipe.difficulty }}</li>
+      <li class="list-group-item">
+        <div class="card-body">
+          <div>Rate: {{ recipeRate$ | async | toFixed }}</div>
+          <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+              <span class="half" [style.width.%]="fill">&#x02605;</span
+              >&#x02605;
+            </span>
+          </ng-template>
+
+          <ngb-rating
+            [rate]="(recipeRate$ | async) || 0"
+            [starTemplate]="t"
+            [max]="5"
+            (rateChange)="changeRate($event)"
+          ></ngb-rating>
+        </div>
+      </li>
+    </ul>
+    <!-- (loggedUser.id===recipe.userId || loggedUser.isAdmin)&& -->
+    <div class="text-center">
+      <span routerLink="/recipes/edit/{{ recipe.id }}" class="m-0 edit-btn"
+        >Edit
+      </span>
+      <span class="card-link"> Delete</span>
+    </div>
+    <!-- } -->
+  </div>
+</div>
